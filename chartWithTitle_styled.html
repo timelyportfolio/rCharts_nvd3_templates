@@ -40,16 +40,16 @@
       //add our title with html
       //might be better with svg
       d3.select("#" + opts.id).insert("h3","svg")
-        .text(opts.title);
+        .text(opts.title)
         //if desired, could change styling with css or with d3
         //some examples here http://tympanus.net/codrops/2012/11/02/heading-set-styling-with-css/
         //will use example
         //.style("float","right");
         //.style("text-shadow", "0 -1px 1px rgba(0,0,0,0.4)")
-        //.style("font-size","22px")
-        //.style("line-height", "40px")
-        //.style("color", "#355681")
+        .style("font-size","22px")
+        .style("line-height", "40px")
+        .style("color", "#355681")
         //.style("ext-transform", "uppercase")
-        //.style("border-bottom", "1px solid rgba(53,86,129, 0.3)");
+        .style("border-bottom", "1px solid rgba(53,86,129, 0.3)");
     };
 </script>
