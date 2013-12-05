@@ -26,3 +26,5 @@ n1
 
 #now let's add a title
 n1$templates$script <- "http://timelyportfolio.github.io/rCharts_nvd3_templates/chartWithTitle.html"
+n1$set(title = "rCharts + nvd3 Power")
+n1
