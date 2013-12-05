@@ -36,5 +36,10 @@
        nv.utils.windowResize(chart.update);
        return chart;
       });
+      
+      //add our title with html
+      //might be better with svg
+      d3.select("#" + opts.id).insert("h3","svg")
+        .text(opts.title);
     };
 </script>
