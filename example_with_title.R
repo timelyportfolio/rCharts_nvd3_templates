@@ -25,7 +25,10 @@ n1
 
 
 #now let's add a title
-n1$templates$script <- "./chartWithTitle.html"
-#n1$templates$script <- "http://timelyportfolio.github.io/rCharts_nvd3_templates/chartWithTitle.html"
+#for a local template something like this
+#n1$templates$script <- "./chartWithTitle.html"
+n1$templates$script <- "http://timelyportfolio.github.io/rCharts_nvd3_templates/chartWithTitle.html"
 n1$set(title = "rCharts + nvd3 Power")
 n1
+
+n1$templates$script <- "http://timelyportfolio.github.io/rCharts_nvd3_templates/chartWithTitle_styled.html"
