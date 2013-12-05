@@ -40,6 +40,9 @@
       //add our title with html
       //might be better with svg
       d3.select("#" + opts.id).insert("h3","svg")
-        .text(opts.title);
+        .text(opts.title)
+        //if desired, could change styling with css or with d3
+        .style("float","right");
+
     };
 </script>
