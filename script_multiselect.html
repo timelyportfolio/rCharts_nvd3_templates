@@ -55,7 +55,8 @@ function DemoCtrl($scope){
 
 function drawChart(opts, data){ 
   if (_.keys(opts.selected).length > 0){
-    data = _.chain(opts.selected)
+  // for multiselect union
+    data = _.at(data,_.chain(opts.selected)
       .map(function(d){
         return _.compact(
           data.map(function(val,ind){
@@ -67,9 +68,26 @@ function drawChart(opts, data){
       })
       .flatten()
       .uniq()
-      .map(function(n){return data[n]})
       .value()
+    )
+  /* for multiselect intersection
+    data = _.chain(opts.selected)
+      .map(function(d){
+        return _.compact(
+          data.map(function(val,ind){
+           if(val[_.keys(d)[0]]===d[_.keys(d)[0]]) {
+              return ind
+            } else {return false}
+          })
+        )
+      })
+      .flatten()
+      .value();
+  
+     intersected = _.filter(_.countBy(testdata,function(d){return d}),opts.selected.length);
+    */
   }
+  
   
 	var data = d3.nest()
 		.key(function(d){
