@@ -39,11 +39,13 @@ function DemoCtrl($scope){
   }
   
   $scope.$watch('selected', function(){
-    $scope.opts.selected = $scope.selected.map(function(d){
-      selectKey={};
-      selectKey[d.variable]=d.value;
-      return selectKey;
-    })
+    if (!(typeof($scope.selected) === "undefined")) {
+      $scope.opts.selected = $scope.selected.map(function(d){
+        selectKey={};
+        selectKey[d.variable]=d.value;
+        return selectKey;
+      })
+    }
   }) 
   
   $scope.$watch('opts',function(){
@@ -52,8 +54,8 @@ function DemoCtrl($scope){
 }  
 
 function drawChart(opts, data){ 
-  if (Object.keys(opts.selected).length > 0){
-    _.chain(opts.selected)
+  if (_.keys(opts.selected).length > 0){
+    data = _.chain(opts.selected)
       .map(function(d){
         return _.compact(
           data.map(function(val,ind){
