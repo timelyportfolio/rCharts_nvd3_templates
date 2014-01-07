@@ -81,12 +81,18 @@ function drawChart(opts, data){
           })
         )
       })
-      .flatten()
       .value();
   
-     intersected = _.chain(testdata)
-      .countBy(function(d){return d})
-      .where(function(d){return d===opts.selected.length});
+     var intersected = _.flatten(_.countBy(testdata,function(d){return d}));
+
+     var varKeys = _.uniq(_.flatten(opts.selected.map(function(d){return _.keys(d)})));
+
+     _.chain(intersected)
+      .map(function(d,i){
+        if (d===varKeys.length) {return i} else {return false}
+      })
+      .compact()
+      .value();
     */
   }
   
