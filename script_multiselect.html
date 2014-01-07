@@ -84,7 +84,9 @@ function drawChart(opts, data){
       .flatten()
       .value();
   
-     intersected = _.filter(_.countBy(testdata,function(d){return d}),opts.selected.length);
+     intersected = _.chain(testdata)
+      .countBy(function(d){return d})
+      .where(function(d){return d===opts.selected.length});
     */
   }
   
