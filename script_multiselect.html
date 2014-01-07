@@ -83,16 +83,17 @@ function drawChart(opts, data){
       })
       .value();
   
-     var intersected = _.flatten(_.countBy(testdata,function(d){return d}));
+     var intersected = _.countBy(_.flatten(testdata,function(d){return d}));
 
      var varKeys = _.uniq(_.flatten(opts.selected.map(function(d){return _.keys(d)})));
 
-     _.chain(intersected)
-      .map(function(d,i){
-        if (d===varKeys.length) {return i} else {return false}
-      })
-      .compact()
-      .value();
+     data = _.at(data,_.chain(intersected)
+        .map(function(d,i){
+          if (d===varKeys.length) {return i} else {return false}
+        })
+        .compact()
+        .value()
+      );
     */
   }
   
