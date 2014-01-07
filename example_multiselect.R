@@ -11,4 +11,5 @@ n1 <- nPlot(
   type = "multiBarChart"  
 )
 n1$addFilters("Hair","Eye")
+n1$templates$script = "http://timelyportfolio.github.io/rCharts_nvd3_templates/script_multiselect.html"
 n1
